@@ -1,0 +1,29 @@
+.contact_help {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: var(--indentation);
+  text-align: center;
+  margin-bottom: var(--indentation-ver-big);
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: calc(var(--indentation-small) + 4px);
+  }
+
+  &__item {
+    text-align: left;
+    max-width: 424px;
+  }
+
+  @media (max-width: 768px) {
+    &__list {
+      grid-template-columns: 1fr;
+    }
+
+    &__item {
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.country_proxy {
+  &__table {
+    margin-top: var(--indentation-small);
+    overflow: auto;
+    width: 100%;
+    max-height: 648px;
+
+    &_inner {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 600px;
+    }
+  }
+
+  &__th {
+    background-color: var(--fourth-color);
+    color: var(--fifth-color);
+    text-align: left;
+    padding: 8px 0;
+    position: sticky;
+    top: 0;
+    width: 33.33%;
+  }
+
+  &__td {
+    border-bottom: 1px solid var(--first-color);
+    font-weight: 500;
+    padding: var(--indentation) 0;
+  }
+
+  &__country {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+  }
+}

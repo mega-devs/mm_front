@@ -1,0 +1,130 @@
+.pricing_choose {
+  &__switch {
+    display: flex;
+    justify-content: center;
+    grid-gap: 16px 72px;
+    margin: var(--indentation) 0;
+
+    &_item {
+      box-shadow: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-basis: calc(50% - 72px);
+      row-gap: var(--indentation-small);
+      text-align: center;
+      transition: 0.3s;
+      max-width: 400px;
+
+      &.active {
+        box-shadow: 12px 0 20px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  &__prices {
+    margin-bottom: var(--indentation-big);
+  }
+
+  &__list {
+    display: flex;
+    grid-gap: calc(var(--indentation) - 4px);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  &__item {
+    flex-shrink: 1;
+    flex-basis: calc(33.33% - ((var(--indentation) - 4px) * 0.75));
+    max-width: 424px;
+
+    &_price {
+      color: var(--first-color);
+      font-size: calc(var(--indentation-big) - 4px);
+      font-weight: 900;
+    }
+
+    &_year {
+      margin: 8px 0 var(--indentation-small);
+    }
+
+    &_storage {
+      font-weight: 500;
+      margin-bottom: calc(var(--indentation) + 4px);
+    }
+  }
+
+  &__forever {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto var(--indentation-big);
+    max-width: 83%;
+
+    &_ul {
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+      margin-top: var(--indentation-small);
+    }
+
+    &_li {
+      display: flex;
+      align-items: center;
+      column-gap: 12px;
+      font-weight: 500;
+    }
+
+    &_flex {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      column-gap: var(--indentation-small);
+      margin-bottom: var(--indentation-small);
+    }
+
+    &_price {
+      color: var(--first-color);
+      font-size: calc(var(--indentation-ver-big) + 4px);
+      font-weight: 900;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &__item {
+      flex-basis: calc(50% - ((var(--indentation) - 4px) * 2));
+      max-width: initial;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__forever {
+      max-width: 100%;
+    }
+
+    &__item {
+      flex-basis: 100%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__forever {
+      flex-direction: column;
+      width: fit-content;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__switch {
+      flex-direction: column;
+
+      &_item {
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+      // flex-direction: column;
+      // width: fit-content;
+    }
+  }
+}

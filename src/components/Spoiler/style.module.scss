@@ -1,0 +1,42 @@
+.spoiler {
+  border: 1px solid var(--second-color);
+  border-radius: 8px;
+  padding: var(--indentation-small) var(--indentation-big);
+
+  &.active {
+    .spoiler__content {
+      transition: 1s;
+      transition-timing-function: ease-in;
+      max-height: 5000px;
+    }
+
+    .spoiler__arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__switch {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: var(--third-color);
+    font-weight: 900;
+    text-transform: initial;
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    transition: 0.5s;
+  }
+
+  &__content {
+    transition: 0.75s;
+    transition-timing-function: ease-out;
+    overflow: hidden;
+    max-height: 0;
+  }
+}

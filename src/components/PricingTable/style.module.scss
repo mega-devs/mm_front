@@ -1,0 +1,67 @@
+.pricing_table {
+  overflow: auto;
+
+  &__inner {
+    min-width: 910px;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+
+    &._first {
+      .pricing_table__item_td {
+        border-top: 1px solid var(--first-color);
+        padding-top: 36px;
+      }
+    }
+
+    &_td {
+      background-color: var(--fourth-color);
+      border-right: 1px solid var(--first-color);
+      border-bottom: 1px solid var(--first-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--indentation) 0;
+
+      &:first-child {
+        text-align: left;
+        justify-content: start;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    &_names {
+      background-color: var(--fourth-color);
+      border-bottom: 1px solid var(--first-color);
+      padding-top: var(--indentation-big);
+      margin-bottom: 24px;
+    }
+
+    &_name {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+      text-align: center;
+      padding: 0 12px 20px;
+    }
+  }
+
+  &__title_middle {
+    color: var(--fifth-color);
+    position: sticky;
+    left: 0;
+    margin-bottom: 24px;
+
+    &._second {
+      margin-top: var(--indentation-big);
+    }
+  }
+}
