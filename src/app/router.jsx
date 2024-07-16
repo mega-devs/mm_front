@@ -1,6 +1,5 @@
-import React from 'react'
-import { Suspense, lazy } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { lazy, Suspense } from 'react'
+import { Route, Routes } from 'react-router-dom'
 
 const Confirm = lazy(() => import('../pages/Confirm'))
 const Contact = lazy(() => import('../pages/Contact'))

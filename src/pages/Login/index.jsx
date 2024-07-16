@@ -3,9 +3,17 @@ import ClientLayout from '../../layout/ClientLayout'
 import Title from '../../ui/Title'
 import { useTranslation } from 'react-i18next'
 import LoginForm from '../../components/LoginForm'
+import { useLogin } from './useLogin'
 
 export default function Login() {
+	const { authSync } = useLogin()
 	const { t } = useTranslation()
+
+	const onSubmit = data => {
+		if (data) {
+			authSync({ email: data.email, password: data.password })
+		}
+	}
 
 	return (
 		<ClientLayout>
@@ -13,7 +21,7 @@ export default function Login() {
 				<div className={styles.login}>
 					<Title>{t('loginTitle')}</Title>
 					<div className={styles.login__content}>
-						<LoginForm />
+						<LoginForm onSubmit={onSubmit} />
 						<img
 							className={styles.login__img}
 							src='/images/Art 2 1.png'

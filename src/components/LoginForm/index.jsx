@@ -6,18 +6,17 @@ import InputForm from '../../form/InputForm'
 import Checkbox from '../../ui/Checkbox'
 import MyLink from '../../ui/MyLink'
 import { ROUTE_NAMES } from '../../app/router'
+import { useState } from 'react'
 
-export default function LoginForm() {
+export default function LoginForm({ onSubmit }) {
 	const { t } = useTranslation()
+	const [checked, setChecked] = useState(false)
 
 	const {
 		register,
 		handleSubmit,
 		formState: { errors }
 	} = useForm()
-	const onSubmit = values => {
-		console.log(values)
-	}
 
 	return (
 		<form
@@ -28,28 +27,33 @@ export default function LoginForm() {
 				<div className={styles.login_form__inputs + ' form-inputs'}>
 					<InputForm
 						className={styles.login_form__input}
-						error={errors.email?.type}
-						rules={{ required: true, minLength: 10 }}
+						error={errors.email?.message}
+						rules={{
+							required: { value: true, message: 'Email required' },
+							minLength: { value: 10, message: 'Min Length 10' }
+						}}
 						register={register}
 						name='email'
 						placeholder={t('formEmail')}
 					/>
 					<InputForm
 						className={styles.login_form__input}
-						error={errors.password?.type}
-						rules={{ required: true, minLength: 10 }}
+						error={errors.password?.message}
+						rules={{
+							required: { value: true, message: 'Password required' },
+							minLength: { value: 1, message: 'Min Length 8' }
+						}}
 						register={register}
 						name='password'
 						placeholder={t('formPassword')}
 					/>
 					<p>{t('loginForgot')}</p>
-					<Checkbox>{t('loginFormCheckbox1')}</Checkbox>
+					<Checkbox checked={checked} onChange={setChecked}>
+						{t('loginFormCheckbox1')}
+					</Checkbox>
 				</div>
 			</div>
-			<Button
-				className={styles.login_form__button}
-				onClick={() => console.log(errors.name)}
-			>
+			<Button disabled={!checked} className={styles.login_form__button}>
 				{t('logIn')}
 			</Button>
 			<div>

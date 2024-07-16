@@ -6,7 +6,6 @@ import AppRouter from './app/router'
 import './app/assets/styles/index.scss'
 import { useTheme } from './app/context/ThemeContext'
 
-
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
@@ -18,15 +17,14 @@ const queryClient = new QueryClient({
 function App() {
 	const { theme } = useTheme()
 
-	const the = useMemo(() => (theme === 'light' ? '' : ' _dark'))
+	const the = useMemo(() => (theme === 'light' ? '' : ' _dark'), [theme])
 
 	return (
 		<div className={'wrapper' + the}>
 			<QueryClientProvider client={queryClient}>
-
-			<BrowserRouter>
-				<AppRouter></AppRouter>
-			</BrowserRouter>
+				<BrowserRouter>
+					<AppRouter></AppRouter>
+				</BrowserRouter>
 			</QueryClientProvider>
 		</div>
 	)

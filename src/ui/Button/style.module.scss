@@ -8,7 +8,7 @@
 	transition: 0.3s;
 	padding: 16px 40px;
 
-	&:hover {
+	&:not([disabled]):hover {
 		background-color: var(--second-color);
 	}
 
@@ -37,4 +37,9 @@
 	@media (max-width: 576px) {
 		padding: 12px 24px;
 	}
+
+	&:disabled {
+		opacity: 0.5;
+	}
+
 }
