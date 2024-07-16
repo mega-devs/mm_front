@@ -1,24 +1,24 @@
 .switch {
-  background-color: var(--fourth-color);
+	background-color: var(--fourth-color);
 
-  &__description {
-    margin-top: 16px;
-  }
+	&__description {
+		margin-top: 16px;
+	}
 
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    grid-gap: var(--indentation-small);
-    margin-top: 32px;
-  }
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		grid-gap: var(--indentation-small);
+		margin-top: 32px;
+	}
 
-  &__item {
-    flex: 1 0 calc(33% - 10px);
-  }
+	&__item {
+		flex: 1 0 calc(33% - 10px);
+	}
 
-  @media (max-width: 720px) {
-    &__item {
-      flex-basis: 100%;
-    }
-  }
+	@media (max-width: 720px) {
+		&__item {
+			flex-basis: 100%;
+		}
+	}
 }

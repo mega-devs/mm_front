@@ -1,82 +1,83 @@
 .servers {
-  // overflow-x: auto;
+	// overflow-x: auto;
 
-  &__table {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--indentation-small);
-    margin-top: var(--indentation);
-    // min-width: 1000px;
+	&__table {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--indentation-small);
+		margin-top: var(--indentation);
+		// min-width: 1000px;
 
-    &_item {
-      display: flex;
-      grid-gap: calc(var(--indentation-small) - 4px) calc(var(--indentation) - 4px);
+		&_item {
+			display: flex;
+			grid-gap: calc(var(--indentation-small) - 4px)
+				calc(var(--indentation) - 4px);
 
-      &_elem {
-        flex-grow: 1;
+			&_elem {
+				flex-grow: 1;
 
-        &:first-child {
-          max-width: 424px;
-        }
-      }
+				&:first-child {
+					max-width: 424px;
+				}
+			}
 
-      &._name {
-        .servers__table_item_ip {
-          font-size: 16px;
-          width: 100%;
-        }
-      }
+			&._name {
+				.servers__table_item_ip {
+					font-size: 16px;
+					width: 100%;
+				}
+			}
 
-      .servers__table_item_ip {
-        display: flex;
-        font-weight: 400;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 424px;
-      }
-    }
+			.servers__table_item_ip {
+				display: flex;
+				font-weight: 400;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 424px;
+			}
+		}
 
-    &_mobile_name {
-      display: none;
-    }
-  }
+		&_mobile_name {
+			display: none;
+		}
+	}
 
-  @media (max-width: 1024px) {
-    &__table {
-      &_item {
-        &_elem {
-          &:first-child {
-            max-width: 360px;
-          }
-        }
+	@media (max-width: 1024px) {
+		&__table {
+			&_item {
+				&_elem {
+					&:first-child {
+						max-width: 360px;
+					}
+				}
 
-        &_ip {
-          max-width: 360px;
-        }
-      }
-    }
-  }
+				&_ip {
+					max-width: 360px;
+				}
+			}
+		}
+	}
 
-  @media (max-width: 768px) {
-    &__table {
-      &_item {
-        flex-direction: column;
+	@media (max-width: 768px) {
+		&__table {
+			&_item {
+				flex-direction: column;
 
-        &_elem {
-          display: flex;
-          flex-direction: column;
-          row-gap: 10px;
-        }
+				&_elem {
+					display: flex;
+					flex-direction: column;
+					row-gap: 10px;
+				}
 
-        &._name {
-          display: none;
-        }
-      }
+				&._name {
+					display: none;
+				}
+			}
 
-      &_mobile_name {
-        display: block;
-      }
-    }
-  }
+			&_mobile_name {
+				display: block;
+			}
+		}
+	}
 }

@@ -1,8 +1,8 @@
 .contact_make {
-  &__list {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--indentation-small);
-    margin-top: var(--indentation);
-  }
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--indentation-small);
+		margin-top: var(--indentation);
+	}
 }

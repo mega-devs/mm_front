@@ -1,20 +1,20 @@
 .contact {
-    position: relative;
+	position: relative;
 
-    &__content {
-        position: relative;
-        z-index: 3;
-    }
+	&__content {
+		position: relative;
+		z-index: 3;
+	}
 
-    &__img {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-    
-        &:nth-child(2) {
-            left: initial;
-            right: 0;
-        }
-    }
+	&__img {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&:nth-child(2) {
+			left: initial;
+			right: 0;
+		}
+	}
 }

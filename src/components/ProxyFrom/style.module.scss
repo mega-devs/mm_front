@@ -1,33 +1,33 @@
 .proxy_form {
-  margin-bottom: var(--indentation-ver-big);
+	margin-bottom: var(--indentation-ver-big);
 
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    grid-gap: var(--indentation-small);
-    margin-bottom: var(--indentation);
-  }
+	&__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		grid-gap: var(--indentation-small);
+		margin-bottom: var(--indentation);
+	}
 
-  .proxy_form__file {
-    padding: 8px 40px;
-  }
+	.proxy_form__file {
+		padding: 8px 40px;
+	}
 
-  &__application {
-    margin-bottom: var(--indentation);
-  }
+	&__application {
+		margin-bottom: var(--indentation);
+	}
 
-  &__form {
-    &_content {
-      display: flex;
-      align-items: flex-start;
-      grid-gap: 24px 48px;
-      flex-wrap: wrap;
-    }
-  }
+	&__form {
+		&_content {
+			display: flex;
+			align-items: flex-start;
+			grid-gap: 24px 48px;
+			flex-wrap: wrap;
+		}
+	}
 
-  &__fields {
-    flex-grow: 1;
-  }
+	&__fields {
+		flex-grow: 1;
+	}
 }

@@ -1,8 +1,8 @@
-import { setClassName } from "../../app/utils/class";
-import styles from "./style.module.scss";
+import { setClassName } from '../../app/utils/class'
+import styles from './style.module.scss'
 
 export default function Line({ className, ...other }) {
-  const styleClassName = setClassName(className);
+	const styleClassName = setClassName(className)
 
-  return <div className={styles.line + styleClassName} {...other} />;
+	return <div className={styles.line + styleClassName} {...other} />
 }

@@ -1,24 +1,24 @@
 .help_list {
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--indentation);
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--indentation);
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    row-gap: 32px;
-    margin-top: 16px;
+	&__content {
+		display: flex;
+		flex-direction: column;
+		row-gap: 32px;
+		margin-top: 16px;
 
-    &_item {
-      display: flex;
-      flex-direction: column;
-      row-gap: 12px;
-    }
-  }
+		&_item {
+			display: flex;
+			flex-direction: column;
+			row-gap: 12px;
+		}
+	}
 
-  &__ul {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--indentation-small);
-  }
+	&__ul {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--indentation-small);
+	}
 }
