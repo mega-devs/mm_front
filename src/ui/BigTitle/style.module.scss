@@ -1,22 +1,22 @@
 .title {
-  color: var(--third-color);
-  font-size: 48px;
-  font-weight: 900;
-  text-transform: uppercase;
+	color: var(--third-color);
+	font-size: 48px;
+	font-weight: 900;
+	text-transform: uppercase;
 
-  &.center {
-    text-align: center;
-  }
+	&.center {
+		text-align: center;
+	}
 
-  &.right {
-    text-align: right;
-  }
+	&.right {
+		text-align: right;
+	}
 
-  @media (max-width: 920px) {
-    font-size: 40px;
-  }
+	@media (max-width: 920px) {
+		font-size: 40px;
+	}
 
-  @media (max-width: 576px) {
-    font-size: 32px;
-  }
+	@media (max-width: 576px) {
+		font-size: 32px;
+	}
 }

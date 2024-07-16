@@ -1,14 +1,14 @@
 .confirm {
-  &__content {
-    display: flex;
-    align-items: flex-start;
-    column-gap: 10px;
-    flex-wrap: wrap;
-    margin-top: var(--indentation);
-  }
+	&__content {
+		display: flex;
+		align-items: flex-start;
+		column-gap: 10px;
+		flex-wrap: wrap;
+		margin-top: var(--indentation);
+	}
 
-  &__img {
-    width: 100%;
-    max-width: 661px;
-  }
+	&__img {
+		width: 100%;
+		max-width: 661px;
+	}
 }

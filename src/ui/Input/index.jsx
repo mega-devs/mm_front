@@ -1,10 +1,10 @@
-import { setClassName } from "../../app/utils/class";
-import styles from "./style.module.scss";
+import { setClassName } from '../../app/utils/class'
+import styles from './style.module.scss'
 
-export default function Input({ className, type = "text", ...other }) {
-  const styleClassName = setClassName(className);
+export default function Input({ className, type = 'text', ...other }) {
+	const styleClassName = setClassName(className)
 
-  return (
-    <input className={styles.input + styleClassName} type={type} {...other} />
-  );
+	return (
+		<input className={styles.input + styleClassName} type={type} {...other} />
+	)
 }

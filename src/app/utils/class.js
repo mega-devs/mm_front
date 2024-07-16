@@ -1,5 +1,5 @@
-export const setClassName = (className) => {
-  if (className) return " " + className;
+export const setClassName = className => {
+	if (className) return ' ' + className
 
-  return "";
-};
+	return ''
+}

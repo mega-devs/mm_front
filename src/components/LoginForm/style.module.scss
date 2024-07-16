@@ -1,25 +1,25 @@
 .login_form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  row-gap: var(--indentation-big);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	row-gap: var(--indentation-big);
 
-  &__input {
-    width: 100%;
-  }
+	&__input {
+		width: 100%;
+	}
 
-  &__inputs {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+	&__inputs {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
 
-  &__checkboxs {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--indentation-small);
-  }
+	&__checkboxs {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--indentation-small);
+	}
 
-  // @media (max-width: 920px) {
-  // }
+	// @media (max-width: 920px) {
+	// }
 }

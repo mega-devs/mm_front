@@ -1,33 +1,33 @@
 .utilize {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  row-gap: var(--indentation-big);
-  margin-bottom: var(--indentation-big);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	row-gap: var(--indentation-big);
+	margin-bottom: var(--indentation-big);
 
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 24px;
-  }
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 24px;
+	}
 
-  &__item {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--indentation-small);
-    padding: 32px 40px;
-  }
+	&__item {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--indentation-small);
+		padding: 32px 40px;
+	}
 
-  @media (max-width: 920px) {
-    &__list {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+	@media (max-width: 920px) {
+		&__list {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
 
-  @media (max-width: 480px) {
-    &__list {
-      grid-template-columns: 1fr;
-      row-gap: 16px;
-    }
-  }
+	@media (max-width: 480px) {
+		&__list {
+			grid-template-columns: 1fr;
+			row-gap: 16px;
+		}
+	}
 }

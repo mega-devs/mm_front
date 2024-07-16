@@ -1,31 +1,31 @@
 .confirm_form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  row-gap: var(--indentation-big);
-  flex-grow: 1;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	row-gap: var(--indentation-big);
+	flex-grow: 1;
 
-  &__input {
-    width: 100%;
-  }
+	&__input {
+		width: 100%;
+	}
 
-  &__inputs {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+	&__inputs {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
 
-  &__checkboxs {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--indentation-small);
-  }
-  
-  // @media (max-width: 920px) {
-  //   row-gap: 20px;
+	&__checkboxs {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--indentation-small);
+	}
 
-  //   &__inputs {
-  //     row-gap: 16px;
-  //   }
-  // }
+	// @media (max-width: 920px) {
+	//   row-gap: 20px;
+
+	//   &__inputs {
+	//     row-gap: 16px;
+	//   }
+	// }
 }
