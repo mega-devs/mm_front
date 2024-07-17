@@ -1,12 +1,10 @@
 .servers {
-	// overflow-x: auto;
 
 	&__table {
 		display: flex;
 		flex-direction: column;
 		row-gap: var(--indentation-small);
 		margin-top: var(--indentation);
-		// min-width: 1000px;
 
 		&_item {
 			display: flex;
