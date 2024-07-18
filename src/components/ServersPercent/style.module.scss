@@ -9,7 +9,6 @@
 
 	&__line {
 		border-radius: inherit;
-		// padding: inherit;
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -34,7 +33,6 @@
 	&.red {
 		border-color: #dd1405;
 		color: #dd1405;
-		// color: #fff;
 
 		.servers_percent__line {
 			background: #dd1405;
@@ -44,7 +42,6 @@
 	&.green {
 		border-color: #27ae60;
 		color: #27ae60;
-		// color: #fff;
 
 		.servers_percent__line {
 			background: #27ae60;
@@ -54,7 +51,6 @@
 	&.grey {
 		border-color: #6f6f6f;
 		color: #6f6f6f;
-		// color: #fff;
 
 		.servers_percent__line {
 			background: #6f6f6f;
