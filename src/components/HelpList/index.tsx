@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 
-import { Spoiler } from '@/components'
-import { P, Title, TitleSmall, Ul } from '@/ui'
+import { Spoiler } from "@/components";
+import { P, Title, TitleSmall, Ul } from "@/ui";
 
-import styles from './style.module.scss'
+import styles from "./style.module.scss";
 
 const HelpList = () => {
 	const { t } = useTranslation()
