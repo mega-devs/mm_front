@@ -5,9 +5,23 @@ import ClientLayout from '@/layout/ClientLayout'
 import { Title } from '@/ui'
 
 import styles from './style.module.scss'
+import { useRegister } from './useRegister'
+import { IRegisterRequest } from '@/shared/types/auth.interface'
 
 const Register = () => {
+	const { registerSync } = useRegister()
 	const { t } = useTranslation()
+
+	const onSubmit = (data: IRegisterRequest) => {
+		if (data) {
+			registerSync({
+				email: data.email,
+				password: data.password,
+				firstname: data.firstname,
+				lastname: data.lastname
+			})
+		}
+	}
 
 	return (
 		<ClientLayout>
@@ -15,7 +29,7 @@ const Register = () => {
 				<div className={styles.register}>
 					<Title>{t('registerTitle')}</Title>
 					<div className={styles.register__content}>
-						<RegisterForm />
+						<RegisterForm onSubmit={onSubmit} />
 						<img
 							className={styles.register__img}
 							src='/images/Art 2 2.png'

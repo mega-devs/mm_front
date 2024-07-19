@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -7,8 +7,13 @@ import { ROUTE_NAMES } from '@/router'
 import { Button, Checkbox, MyLink } from '@/ui'
 
 import styles from './style.module.scss'
+import { ILoginRequest } from '@/shared/types/auth.interface'
 
-const LoginForm = ({ onSubmit }) => {
+interface IProps {
+	onSubmit: (data: ILoginRequest) => void
+}
+
+const LoginForm: FC<IProps> = ({ onSubmit }) => {
 	const { t } = useTranslation()
 	const [checked, setChecked] = useState(false)
 

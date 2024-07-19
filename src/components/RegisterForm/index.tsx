@@ -8,8 +8,14 @@ import { setErrorMessage } from '@/utils/error'
 import { equalFields, regEmailPattern } from '@/utils/validate'
 
 import styles from './style.module.scss'
+import { FC } from 'react'
+import { IRegisterRequest } from '@/shared/types/auth.interface'
 
-const RegisterForm = () => {
+interface IProps {
+	onSubmit: (data: IRegisterRequest) => void
+}
+
+const RegisterForm: FC<IProps> = ({ onSubmit }) => {
 	const { t } = useTranslation()
 
 	const {
@@ -18,10 +24,6 @@ const RegisterForm = () => {
 		formState: { errors },
 		watch
 	} = useForm()
-
-	const onSubmit = values => {
-		console.log(values)
-	}
 
 	return (
 		<form
@@ -35,24 +37,18 @@ const RegisterForm = () => {
 							className={styles.register_form__input}
 							error={setErrorMessage({ formField: errors.firstName, t })}
 							rules={{
-								required: true,
-								minLength: {
-									value: 5,
-									message: t('form_minLength', {
-										min: 5
-									})
-								}
+								required: true
 							}}
 							register={register}
-							name='firstName'
+							name='firstname'
 							placeholder={t('formFirstName')}
 						/>
 						<InputForm
 							className={styles.register_form__input}
 							error={setErrorMessage({ formField: errors.lastName, t })}
-							rules={{ required: true, minLength: 10 }}
+							rules={{ required: true }}
 							register={register}
-							name='lastName'
+							name='lastname'
 							placeholder={t('formLastName')}
 						/>
 					</div>
@@ -75,13 +71,11 @@ const RegisterForm = () => {
 						error={setErrorMessage({ formField: errors.password, t })}
 						rules={{
 							required: true,
-							validate: {
-								confirm: value =>
-									equalFields(
-										value,
-										watch('passwordConfirm'),
-										t('form_confirm')
-									)
+							minLength: {
+								value: 8,
+								message: t('form_minLength', {
+									min: 8
+								})
 							}
 						}}
 						register={register}
@@ -93,7 +87,11 @@ const RegisterForm = () => {
 						className={styles.register_form__input}
 						error={setErrorMessage({ formField: errors.passwordConfirm, t })}
 						rules={{
-							required: true
+							required: true,
+							validate: {
+								confirm: value =>
+									equalFields(value, watch('password'), t('form_confirm'))
+							}
 						}}
 						register={register}
 						name='passwordConfirm'
@@ -120,9 +118,7 @@ const RegisterForm = () => {
 					</CheckboxForm>
 				</div>
 			</div>
-			<Button onClick={() => console.log(errors)}>
-				{t('registerFormSubmit')}
-			</Button>
+			<Button>{t('registerFormSubmit')}</Button>
 			<div>
 				{t('registerFormAlready')}{' '}
 				<MyLink to={ROUTE_NAMES.login}>{t('logIn')}</MyLink>

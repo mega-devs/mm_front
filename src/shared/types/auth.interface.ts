@@ -10,3 +10,15 @@ export interface ITokens {
 	access: string
 	refresh: string
 }
+
+export interface ILoginRequest {
+	email: string
+	password: string
+}
+
+export interface IRegisterRequest {
+	email: string
+	password: string
+	firstname: string
+	lastname: string
+}

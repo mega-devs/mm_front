@@ -6,12 +6,13 @@ import { Title } from '@/ui'
 
 import styles from './style.module.scss'
 import { useLogin } from './useLogin'
+import { ILoginRequest } from '@/shared/types/auth.interface'
 
 const Login = () => {
 	const { authSync } = useLogin()
 	const { t } = useTranslation()
 
-	const onSubmit = data => {
+	const onSubmit = (data: ILoginRequest) => {
 		if (data) {
 			authSync({ email: data.email, password: data.password })
 		}

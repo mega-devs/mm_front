@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom'
 
 import { saveTokensStorage } from '@/services/auth/auth.helper'
 import { AuthService } from '@/services/auth/auth.service'
+import { ILoginRequest } from '@/shared/types/auth.interface'
 
 export const useLogin = () => {
 	const navigate = useNavigate()
 
 	const { mutate: authSync } = useMutation(
 		['auth'],
-		(data: { email: string; password: string }) => AuthService.login(data),
+		(data: ILoginRequest) => AuthService.login(data),
 		{
 			onSuccess: data => {
 				saveTokensStorage(data)
