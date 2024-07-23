@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
@@ -10,8 +10,15 @@ import { Button } from '@/ui'
 import { setClassName } from '@/utils/class'
 
 import styles from './style.module.scss'
+import {
+	deleteTokensStorage,
+	getRefreshToken
+} from '@/services/auth/auth.helper'
+import { AuthService } from '@/services/auth/auth.service'
 
 const Header = () => {
+	const [isAuth, setIsAuth] = useState(false)
+	const refreshToken = getRefreshToken()
 	const { t } = useTranslation()
 	const { theme, toggleTheme } = useTheme()
 
@@ -22,6 +29,17 @@ const Header = () => {
 
 		return ''
 	}, [active])
+
+	useEffect(() => {
+		refreshToken ? setIsAuth(true) : setIsAuth(false)
+	}, [refreshToken])
+
+	const logout = () => {
+		AuthService.logout(refreshToken).then(() => {
+			setIsAuth(false)
+			deleteTokensStorage()
+		})
+	}
 
 	return (
 		<header className={styles.header}>
@@ -52,16 +70,27 @@ const Header = () => {
 								{theme === 'light' ? t('theme_dark') : t('theme_light')}
 							</div>
 							<div className={styles.header__buttons}>
-								<Link to={ROUTE_NAMES.login}>
-									<Button className={styles.header__button} variant='outlined'>
-										{t('logIn')}
+								{isAuth ? (
+									<Button className={styles.header__button} onClick={logout}>
+										{t('logOut')}
 									</Button>
-								</Link>
-								<Link to={ROUTE_NAMES.register}>
-									<Button className={styles.header__button}>
-										{t('signUp')}
-									</Button>
-								</Link>
+								) : (
+									<>
+										<Link to={ROUTE_NAMES.login}>
+											<Button
+												className={styles.header__button}
+												variant='outlined'
+											>
+												{t('logIn')}
+											</Button>
+										</Link>
+										<Link to={ROUTE_NAMES.register}>
+											<Button className={styles.header__button}>
+												{t('signUp')}
+											</Button>
+										</Link>
+									</>
+								)}
 							</div>
 						</div>
 					</div>
