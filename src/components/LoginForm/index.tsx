@@ -7,6 +7,7 @@ import { ROUTE_NAMES } from '@/router'
 import { Button, Checkbox, MyLink } from '@/ui'
 
 import styles from './style.module.scss'
+import { regEmailPattern } from '@/utils/validate'
 
 const LoginForm = ({ onSubmit }) => {
 	const { t } = useTranslation()
@@ -30,7 +31,7 @@ const LoginForm = ({ onSubmit }) => {
 						error={errors.email?.message}
 						rules={{
 							required: { value: true, message: 'Email required' },
-							minLength: { value: 10, message: 'Min Length 10' }
+							pattern: { value: regEmailPattern, message: 'Incorrect email' }
 						}}
 						register={register}
 						name='email'
@@ -53,7 +54,7 @@ const LoginForm = ({ onSubmit }) => {
 					</Checkbox>
 				</div>
 			</div>
-			<Button disabled={!checked}>{t('logIn')}</Button>
+			<Button onClick={() => {}} disabled={!checked}>{t('logIn')}</Button>
 			<div>
 				{t('loginDontAccount')}{' '}
 				<MyLink to={ROUTE_NAMES.login}>{t('loginRegister')}</MyLink>

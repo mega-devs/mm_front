@@ -1,13 +1,14 @@
-import { useForm } from 'react-hook-form'
+import { Message, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 import { CheckboxForm, InputForm } from '@/form'
 import { ROUTE_NAMES } from '@/router'
 import { Button, MyLink } from '@/ui'
 import { setErrorMessage } from '@/utils/error'
-import { equalFields, regEmailPattern } from '@/utils/validate'
+import { equalFields, isValidPassword, regEmailPattern } from '@/utils/validate'
 
 import styles from './style.module.scss'
+import { LiteralUnion } from 'react-hook-form/dist/types/utils'
 
 const RegisterForm = () => {
 	const { t } = useTranslation()
@@ -50,7 +51,15 @@ const RegisterForm = () => {
 						<InputForm
 							className={styles.register_form__input}
 							error={setErrorMessage({ formField: errors.lastName, t })}
-							rules={{ required: true, minLength: 10 }}
+							rules={{
+								required: true,
+								minLength: {
+									value: 5,
+									message: t('form_minLength', {
+										min: 5
+									})
+								}
+							}}
 							register={register}
 							name='lastName'
 							placeholder={t('formLastName')}
@@ -76,13 +85,8 @@ const RegisterForm = () => {
 						rules={{
 							required: true,
 							validate: {
-								confirm: value =>
-									equalFields(
-										value,
-										watch('passwordConfirm'),
-										t('form_confirm')
-									)
-							}
+								confirm: value => isValidPassword(value, 5)
+							},
 						}}
 						register={register}
 						name='password'
@@ -93,7 +97,12 @@ const RegisterForm = () => {
 						className={styles.register_form__input}
 						error={setErrorMessage({ formField: errors.passwordConfirm, t })}
 						rules={{
-							required: true
+							required: true,
+							validate: value =>
+								equalFields(
+								value,
+								watch('password'),
+								t('form_confirm'))
 						}}
 						register={register}
 						name='passwordConfirm'

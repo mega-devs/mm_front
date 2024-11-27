@@ -6,8 +6,9 @@ interface ISetErrorMessage {
 }
 
 export const setErrorMessage = ({ formField, t = null }: ISetErrorMessage) => {
-	if (typeof t === 'function' && !formField?.message && formField?.type)
+	if (typeof t === 'function' && !formField?.message && formField?.type) {
 		return t('form_' + formField?.type)
+	}
 
 	return formField?.message ? formField?.message : formField?.type
 }
