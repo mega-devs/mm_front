@@ -549,11 +549,14 @@
   "formFirstName": "First name",
   "formLastName": "Last name",
   "formEmail": "Email",
+  "formTelegram": "Telegram username",
   "formPassword": "Password",
   "formPasswordConfirm": "Retype password",
 
   "form_required": "field is required",
   "form_minLength": "field must be at least {{min}} characters",
+  "form_telegram": "field must be correct telegram username in format '@username'",
   "form_email": "field must be a valid email address",
-  "form_confirm": "fields confirmation does not match"
+  "form_confirm": "fields confirmation does not match",
+  "form_weak_password": "password must have minimum length 6, at least 1 capital, 1 lowercase and 1 digit symbol"
 }
