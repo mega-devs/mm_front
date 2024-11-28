@@ -5,7 +5,7 @@ import { CheckboxForm, InputForm } from '@/form'
 import { ROUTE_NAMES } from '@/router'
 import { Button, MyLink } from '@/ui'
 import { setErrorMessage } from '@/utils/error'
-import { equalFields, isValidPassword, regEmailPattern } from '@/utils/validate'
+import { equalFields, isValidPassword, regEmailPattern, regTelegramPattern } from '@/utils/validate'
 
 import styles from './style.module.scss'
 import { LiteralUnion } from 'react-hook-form/dist/types/utils'
@@ -81,11 +81,25 @@ const RegisterForm = () => {
 					/>
 					<InputForm
 						className={styles.register_form__input}
+						error={setErrorMessage({ formField: errors.telegram, t })}
+						rules={{
+							required: false,
+							pattern: {
+								value: regTelegramPattern,
+								message: t('form_telegram')
+							}
+						}}
+						register={register}
+						name='telegram'
+						placeholder={t('formTelegram')}
+					/>
+					<InputForm
+						className={styles.register_form__input}
 						error={setErrorMessage({ formField: errors.password, t })}
 						rules={{
 							required: true,
 							validate: {
-								confirm: value => isValidPassword(value, 5)
+								confirm: value => isValidPassword(value, 5, t("form_weak_password"))
 							},
 						}}
 						register={register}
