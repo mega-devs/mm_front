@@ -44,6 +44,7 @@ const LoginForm = ({ onSubmit }) => {
 							required: { value: true, message: 'Password required' },
 							minLength: { value: 1, message: 'Min Length 8' }
 						}}
+						type="password"
 						register={register}
 						name='password'
 						placeholder={t('formPassword')}
@@ -57,7 +58,7 @@ const LoginForm = ({ onSubmit }) => {
 			<Button onClick={() => {}} disabled={!checked}>{t('logIn')}</Button>
 			<div>
 				{t('loginDontAccount')}{' '}
-				<MyLink to={ROUTE_NAMES.login}>{t('loginRegister')}</MyLink>
+				<MyLink to={ROUTE_NAMES.register}>{t('loginRegister')}</MyLink>
 			</div>
 		</form>
 	)

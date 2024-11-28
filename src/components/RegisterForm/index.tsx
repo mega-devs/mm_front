@@ -1,17 +1,22 @@
-import { Message, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-
 import { CheckboxForm, InputForm } from '@/form'
 import { ROUTE_NAMES } from '@/router'
 import { Button, MyLink } from '@/ui'
 import { setErrorMessage } from '@/utils/error'
-import { equalFields, isValidPassword, regEmailPattern, regTelegramPattern } from '@/utils/validate'
-
+import {
+	equalFields,
+	isValidPassword,
+	regEmailPattern,
+	regTelegramPattern
+} from '@/utils/validate'
 import styles from './style.module.scss'
-import { LiteralUnion } from 'react-hook-form/dist/types/utils'
+import toast, { Toaster } from 'react-hot-toast'
+import { request } from '@/services/api/request.api'
 
 const RegisterForm = () => {
 	const { t } = useTranslation()
+	const notify = (notification: string) => toast(notification)
 
 	const {
 		register,
@@ -20,8 +25,14 @@ const RegisterForm = () => {
 		watch
 	} = useForm()
 
-	const onSubmit = values => {
-		console.log(values)
+	const onSubmit = async values => {
+		await request({
+			url: 'http://{server_url}/register'
+		})
+			.then(() => notify('Account registered successfully.'))
+			.catch(() =>
+				notify('Error was occurred or account is already registered.')
+			)
 	}
 
 	return (
@@ -99,8 +110,9 @@ const RegisterForm = () => {
 						rules={{
 							required: true,
 							validate: {
-								confirm: value => isValidPassword(value, 5, t("form_weak_password"))
-							},
+								confirm: value =>
+									isValidPassword(value, 5, t('form_weak_password'))
+							}
 						}}
 						register={register}
 						name='password'
@@ -113,10 +125,7 @@ const RegisterForm = () => {
 						rules={{
 							required: true,
 							validate: value =>
-								equalFields(
-								value,
-								watch('password'),
-								t('form_confirm'))
+								equalFields(value, watch('password'), t('form_confirm'))
 						}}
 						register={register}
 						name='passwordConfirm'
@@ -143,13 +152,19 @@ const RegisterForm = () => {
 					</CheckboxForm>
 				</div>
 			</div>
-			<Button onClick={() => console.log(errors)}>
+			<Button
+				onSubmit={() => {
+					console.log(123)
+					notify('Account registered successfully')
+				}}
+			>
 				{t('registerFormSubmit')}
 			</Button>
 			<div>
 				{t('registerFormAlready')}{' '}
 				<MyLink to={ROUTE_NAMES.login}>{t('logIn')}</MyLink>
 			</div>
+			<Toaster position='bottom-center' />
 		</form>
 	)
 }
