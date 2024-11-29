@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { HeaderNav } from '@/components'
 import { useTheme } from '@/context/ThemeContext'
-import { Lang, Logo, Theme } from '@/icons'
+import { Logo, Theme } from '@/icons'
 import { ROUTE_NAMES } from '@/router'
 import { Button } from '@/ui'
 import { setClassName } from '@/utils/class'
@@ -15,6 +15,7 @@ import {
 	getRefreshToken
 } from '@/services/auth/auth.helper'
 import { AuthService } from '@/services/auth/auth.service'
+import LangChooseButton from '@/components/LangChooseButton'
 
 const Header = () => {
 	const [isAuth, setIsAuth] = useState(false)
@@ -61,10 +62,11 @@ const Header = () => {
 						></div>
 						<HeaderNav />
 						<div className={styles.header__actions}>
-							<div className={styles.header__action}>
-								<Lang />
-								{t('lang')}
-							</div>
+							{/*<div className={styles.header__action}>*/}
+							{/*	<Lang />*/}
+							{/*	{t('lang')}*/}
+							{/*</div>*/}
+							<LangChooseButton />
 							<div onClick={toggleTheme} className={styles.header__action}>
 								<Theme />
 								{theme === 'light' ? t('theme_dark') : t('theme_light')}
