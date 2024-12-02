@@ -17,7 +17,7 @@
   row-gap: 12px;
   padding: 12px;
   position: absolute;
-  left: -12px;
+  left: 10px;
   top: 0;
   transform: translateY(28px);
   z-index: 1;
@@ -30,8 +30,13 @@
 }
 
 .li {
+  transition: all ease-in-out 0.2s;
   cursor: pointer;
   text-wrap: nowrap;
   width: fit-content;
-  padding: 15px;
+  padding: 5px 0 5px 0;
+}
+
+.li:hover {
+  color: var(--fifth-color);
 }

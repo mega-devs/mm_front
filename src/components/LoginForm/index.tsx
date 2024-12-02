@@ -41,10 +41,9 @@ const LoginForm = ({ onSubmit }) => {
 						className={styles.login_form__input}
 						error={errors.password?.message}
 						rules={{
-							required: { value: true, message: 'Password required' },
-							minLength: { value: 1, message: 'Min Length 8' }
+							required: { value: true, message: t('form_required') }
 						}}
-						type="password"
+						type='password'
 						register={register}
 						name='password'
 						placeholder={t('formPassword')}
@@ -55,7 +54,9 @@ const LoginForm = ({ onSubmit }) => {
 					</Checkbox>
 				</div>
 			</div>
-			<Button onClick={() => {}} disabled={!checked}>{t('logIn')}</Button>
+			<Button onClick={() => {}} disabled={!checked}>
+				{t('logIn')}
+			</Button>
 			<div>
 				{t('loginDontAccount')}{' '}
 				<MyLink to={ROUTE_NAMES.register}>{t('loginRegister')}</MyLink>

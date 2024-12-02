@@ -1,12 +1,14 @@
 .btn {
 	background-color: var(--first-color);
 	color: #fafafa;
+	width: fit-content;
+	text-overflow-ellipsis: auto;
 	border: 1px solid transparent;
 	border-radius: 8px;
 	font-size: 16px;
 	font-weight: 500;
 	transition: 0.3s;
-	padding: 16px 40px;
+	padding: 16px 20px;
 
 	&:not([disabled]):hover {
 		background-color: var(--second-color);
