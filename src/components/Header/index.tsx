@@ -62,11 +62,12 @@ const Header = () => {
 						></div>
 						<HeaderNav />
 						<div className={styles.header__actions}>
-							{/*<div className={styles.header__action}>*/}
-							{/*	<Lang />*/}
-							{/*	{t('lang')}*/}
-							{/*</div>*/}
-							<LangChooseButton />
+							<div className={styles.header__action}>
+								<LangChooseButton
+									items={[{ title: 'EN' }, { title: 'DE' }, { title: 'RU' }]}
+								/>
+							</div>
+
 							<div onClick={toggleTheme} className={styles.header__action}>
 								<Theme />
 								{theme === 'light' ? t('theme_dark') : t('theme_light')}
@@ -87,7 +88,10 @@ const Header = () => {
 											</Button>
 										</Link>
 										<Link to={ROUTE_NAMES.register}>
-											<Button className={styles.header__button}>
+											<Button
+												style={{ padding: '8px 5px 8px 5px' }}
+												className={styles.header__button}
+											>
 												{t('signUp')}
 											</Button>
 										</Link>

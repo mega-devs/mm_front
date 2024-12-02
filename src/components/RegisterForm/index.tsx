@@ -29,10 +29,8 @@ const RegisterForm = () => {
 		await request({
 			url: 'http://{server_url}/register'
 		})
-			.then(() => notify('Account registered successfully.'))
-			.catch(() =>
-				notify('Error was occurred or account is already registered.')
-			)
+			.then(() => notify(t('registerSuccess')))
+			.catch(() => notify(t('registerError')))
 	}
 
 	return (

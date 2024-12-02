@@ -2,7 +2,8 @@
   "lang": "EN",
   "theme_dark": "Dark",
   "theme_light": "Light",
-
+  "registerError": "Error was occurred or account is already registered.",
+  "registerSuccess": "Account registered successfully.",
   "headerNavProducts": "Products",
   "headerNavMailer": "Mailer",
   "headerNavPackages": "Packages",
